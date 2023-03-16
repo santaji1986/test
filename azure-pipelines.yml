@@ -30,7 +30,7 @@ stages:
       - job: Acceptance
         steps:
           - script: echo $(user)
-  - stage: Production Stage
+  - stage: ProductionStage
     variables:
       - group:  "Production Var Group"
     jobs:
