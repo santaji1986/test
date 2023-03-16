@@ -23,7 +23,7 @@ stages:
         steps:
           - script: echo $(user)
           - bash: |
-              echo "This is a multiline command"
+              echo "This is a multiline command" \
               "that continues on the next line"
   - stage: AcceptanceStage
     variables:
