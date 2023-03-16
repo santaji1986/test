@@ -12,9 +12,6 @@ trigger:
     include:
       - ./*
 
-pool:
-  vmImage: ubuntu-latest
-  
 stages:
   - stage: TestStage
     variables:
