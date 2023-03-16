@@ -22,8 +22,8 @@ stages:
       - job: Test
         steps:
           - script: echo $(user)
-          - script: |
-              echo "This is a multiline command" \
+          - bash: |
+              echo "This is a multiline command"
               "that continues on the next line"
   - stage: AcceptanceStage
     variables:
