@@ -23,7 +23,7 @@ stages:
           - script: |
               >
                 echo This is a multiline command
-                      that continues on the next line
+                that continues on the next line
   - stage: AcceptanceStage
     variables:
       - group:  "Acceptance Var Group"
