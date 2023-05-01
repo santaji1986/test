@@ -19,6 +19,15 @@ stages:
     variables:
     - group: "Test Var Group"
     jobs:
+      - deployment: 
+        displayName: Deploy to Test
+        environment:
+          name: Test1
+        strategy:
+          runOnce:
+            deploy:
+              steps:
+                - script: echo In Test $(user)
       - job: Test
         steps:
           - script: echo $(user)
@@ -30,11 +39,14 @@ stages:
       - group:  "Acceptance Var Group"
     jobs:
       - deployment: 
+        displayName: Deploy to Acceptance
         environment:
-          name: Test1
-      - job: Acceptance
-        steps:
-          - script: echo $(user)
+          name: Test2
+        strategy:
+          runOnce:
+            deploy:
+              steps:
+                - script: echo In Acceptance $(user)
   - stage: ProductionStage
     variables:
       - group:  "Production Var Group"
