@@ -29,6 +29,9 @@ stages:
     variables:
       - group:  "Acceptance Var Group"
     jobs:
+      - deployment: 
+        environment:
+          name: Test1
       - job: Acceptance
         steps:
           - script: echo $(user)
