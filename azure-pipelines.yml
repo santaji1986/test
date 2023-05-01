@@ -28,12 +28,15 @@ stages:
             deploy:
               steps:
                 - script: echo In Test $(user)
-      - job: Test
-        steps:
-          - script: echo $(user)
-          - bash: |
-              echo "This is a multiline command" \
-              "that continues on the next line"
+                - bash: |
+                    echo "This is a multiline command" \
+                    "that continues on the next line"
+      # - job: Test
+      #   steps:
+      #     - script: echo $(user)
+      #     - bash: |
+      #         echo "This is a multiline command" \
+      #         "that continues on the next line"
   - stage: AcceptanceStage
     variables:
       - group:  "Acceptance Var Group"
@@ -51,7 +54,16 @@ stages:
     variables:
       - group:  "Production Var Group"
     jobs:
-      - job: Production
-        steps:
-          - script: echo $(user)
+      - deployment: 
+        displayName: Deploy to Production
+        environment:
+          name: Test3
+        strategy:
+          runOnce:
+            deploy:
+              steps:
+                - script: echo In Production $(user)
+      # - job: Production
+      #   steps:
+      #     - script: echo $(user)
 
